@@ -127,3 +127,19 @@ plt.xlabel("Credit Risk")
 plt.ylabel("Number of Customers")
 
 plt.show()
+
+# 4.2 Credit Amount vs Credit Risk
+
+plt.figure(figsize=(8, 5))
+
+sns.boxplot(
+    x="credit_risk",
+    y="credit_amount",
+    data=df
+)
+
+plt.title("Credit Amount vs Credit Risk")
+plt.xlabel("Credit Risk")
+plt.ylabel("Credit Amount")
+
+plt.show()
