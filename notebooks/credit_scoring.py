@@ -254,3 +254,11 @@ preprocessor = ColumnTransformer(
 )
 
 print("\nPreprocessor created successfully.")
+
+
+# Transform features
+
+X_encoded = preprocessor.fit_transform(X)
+
+print("\nEncoded feature matrix shape:")
+print(X_encoded.shape)
