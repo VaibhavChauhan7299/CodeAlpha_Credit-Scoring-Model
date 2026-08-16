@@ -237,3 +237,20 @@ print(numerical_features)
 
 print("\nCategorical features:")
 print(categorical_features)
+
+# ==========================================
+# ENCODING CATEGORICAL FEATURES
+# ==========================================
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        (
+            "categorical",
+            OneHotEncoder(handle_unknown="ignore"),
+            categorical_features
+        )
+    ],
+    remainder="passthrough"
+)
+
+print("\nPreprocessor created successfully.")
