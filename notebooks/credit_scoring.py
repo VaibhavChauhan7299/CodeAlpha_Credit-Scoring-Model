@@ -10,7 +10,7 @@ import seaborn as sns
 
 from pathlib import Path
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from sklearn.model_selection import train_test_split
 
@@ -264,6 +264,25 @@ X_encoded = preprocessor.fit_transform(X)
 
 print("\nEncoded feature matrix shape:")
 print(X_encoded.shape)
+
+# ==========================================
+# FEATURE SCALING & PREPROCESSING
+# ==========================================
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        (
+            "numerical",
+            StandardScaler(),
+            numerical_features
+        ),
+        (
+            "categorical",
+            OneHotEncoder(handle_unknown="ignore"),
+            categorical_features
+        )
+    ]
+)
 
 # ==========================================
 # STEP 13: TRAIN / TEST SPLIT
