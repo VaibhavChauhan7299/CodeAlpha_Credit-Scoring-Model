@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from pathlib import Path
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
 
 
 # ==========================================
