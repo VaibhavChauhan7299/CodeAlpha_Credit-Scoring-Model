@@ -175,3 +175,24 @@ plt.xlabel("Credit Risk")
 plt.ylabel("Duration (months)")
 
 plt.show()
+
+# 4.5 Correlation Heatmap
+
+numerical_columns = df.select_dtypes(
+    include=["int64", "float64"]
+).columns
+
+correlation = df[numerical_columns].corr()
+
+plt.figure(figsize=(10, 8))
+
+sns.heatmap(
+    correlation,
+    annot=True,
+    cmap="coolwarm",
+    fmt=".2f"
+)
+
+plt.title("Correlation Heatmap")
+
+plt.show()
