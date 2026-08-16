@@ -143,3 +143,19 @@ plt.xlabel("Credit Risk")
 plt.ylabel("Credit Amount")
 
 plt.show()
+
+# 4.3 Age vs Credit Risk
+
+plt.figure(figsize=(8, 5))
+
+sns.boxplot(
+    x="credit_risk",
+    y="age",
+    data=df
+)
+
+plt.title("Age vs Credit Risk")
+plt.xlabel("Credit Risk")
+plt.ylabel("Age")
+
+plt.show()
