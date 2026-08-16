@@ -84,3 +84,29 @@ print(df.isnull().sum())
 
 print("\nDuplicate rows:")
 print(df.duplicated().sum())
+
+
+# ==========================================
+# STEP 10: DATA CLEANING
+# ==========================================
+
+print("\nNumerical columns summary:")
+print(df.describe())
+
+
+print("\nCategorical columns:")
+
+categorical_columns = df.select_dtypes(include="object").columns
+
+print(categorical_columns.tolist())
+
+
+print("\nUnique values in categorical columns:")
+
+for column in categorical_columns:
+    print(f"\n{column}:")
+    print(df[column].unique())
+
+
+print("\nTarget values:")
+print(df["credit_risk"].unique())
