@@ -12,6 +12,8 @@ from pathlib import Path
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
+from sklearn.model_selection import train_test_split
+
 
 # ==========================================
 # STEP 1: FIND PROJECT FOLDER
@@ -262,3 +264,28 @@ X_encoded = preprocessor.fit_transform(X)
 
 print("\nEncoded feature matrix shape:")
 print(X_encoded.shape)
+
+# ==========================================
+# STEP 13: TRAIN / TEST SPLIT
+# ==========================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42,
+    stratify=y
+)
+
+
+print("\nTraining data shape:")
+print(X_train.shape)
+
+print("\nTesting data shape:")
+print(X_test.shape)
+
+print("\nTraining target shape:")
+print(y_train.shape)
+
+print("\nTesting target shape:")
+print(y_test.shape)
