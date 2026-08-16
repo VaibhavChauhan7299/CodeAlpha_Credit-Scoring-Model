@@ -159,3 +159,19 @@ plt.xlabel("Credit Risk")
 plt.ylabel("Age")
 
 plt.show()
+
+# 4.4 Duration vs Credit Risk
+
+plt.figure(figsize=(8, 5))
+
+sns.boxplot(
+    x="credit_risk",
+    y="duration",
+    data=df
+)
+
+plt.title("Loan Duration vs Credit Risk")
+plt.xlabel("Credit Risk")
+plt.ylabel("Duration (months)")
+
+plt.show()
