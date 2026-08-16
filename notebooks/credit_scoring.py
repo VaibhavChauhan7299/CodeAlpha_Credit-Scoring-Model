@@ -219,3 +219,19 @@ print(X.shape)
 
 print("\ny shape:")
 print(y.shape)
+
+# Identify numerical and categorical columns
+
+numerical_features = X.select_dtypes(
+    include=["int64", "float64"]
+).columns.tolist()
+
+categorical_features = X.select_dtypes(
+    include=["object"]
+).columns.tolist()
+
+print("\nNumerical features:")
+print(numerical_features)
+
+print("\nCategorical features:")
+print(categorical_features)
