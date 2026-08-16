@@ -110,3 +110,20 @@ for column in categorical_columns:
 
 print("\nTarget values:")
 print(df["credit_risk"].unique())
+
+
+# ==========================================
+# STEP 11: EXPLORATORY DATA ANALYSIS (EDA)
+# ==========================================
+
+# 4.1 Credit Risk Distribution
+
+plt.figure(figsize=(6, 4))
+
+sns.countplot(x="credit_risk", data=df)
+
+plt.title("Credit Risk Distribution")
+plt.xlabel("Credit Risk")
+plt.ylabel("Number of Customers")
+
+plt.show()
