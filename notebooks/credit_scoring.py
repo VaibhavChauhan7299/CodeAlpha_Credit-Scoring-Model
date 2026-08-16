@@ -196,3 +196,26 @@ sns.heatmap(
 plt.title("Correlation Heatmap")
 
 plt.show()
+
+
+# ==========================================
+# STEP 12: FEATURE ENGINEERING
+# ==========================================
+
+# Separate features and target
+
+X = df.drop("credit_risk", axis=1)
+
+y = df["credit_risk"]
+
+print("\nFeatures (X):")
+print(X.head())
+
+print("\nTarget (y):")
+print(y.head())
+
+print("\nX shape:")
+print(X.shape)
+
+print("\ny shape:")
+print(y.shape)
