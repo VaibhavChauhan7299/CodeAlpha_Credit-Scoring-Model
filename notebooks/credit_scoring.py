@@ -232,3 +232,20 @@ print(numerical_features)
 print("\nCategorical features:")
 print(categorical_features)
 
+# ==========================================
+# STEP 6: TRAIN / TEST SPLIT
+# ==========================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42,
+    stratify=y
+)
+
+print("\nTraining data shape:")
+print(X_train.shape)
+
+print("\nTesting data shape:")
+print(X_test.shape)
