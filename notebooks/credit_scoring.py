@@ -249,3 +249,36 @@ print(X_train.shape)
 
 print("\nTesting data shape:")
 print(X_test.shape)
+
+# ==========================================
+# STEP 7: FEATURE SCALING & PREPROCESSING
+# ==========================================
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        (
+            "numerical",
+            StandardScaler(),
+            numerical_features
+        ),
+        (
+            "categorical",
+            OneHotEncoder(handle_unknown="ignore"),
+            categorical_features
+        )
+    ]
+)
+
+
+# Fit ONLY on training data
+
+X_train_processed = preprocessor.fit_transform(X_train)
+
+X_test_processed = preprocessor.transform(X_test)
+
+
+print("\nProcessed training shape:")
+print(X_train_processed.shape)
+
+print("\nProcessed testing shape:")
+print(X_test_processed.shape)
