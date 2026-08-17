@@ -9,10 +9,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from pathlib import Path
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from sklearn.model_selection import train_test_split
+
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 # ==========================================
@@ -201,22 +202,12 @@ plt.title("Correlation Heatmap")
 
 plt.show()
 
-
 # ==========================================
-# STEP 12: FEATURE ENGINEERING
+# STEP 5: FEATURE ENGINEERING
 # ==========================================
-
-# Separate features and target
 
 X = df.drop("credit_risk", axis=1)
-
 y = df["credit_risk"]
-
-print("\nFeatures (X):")
-print(X.head())
-
-print("\nTarget (y):")
-print(y.head())
 
 print("\nX shape:")
 print(X.shape)
@@ -224,14 +215,15 @@ print(X.shape)
 print("\ny shape:")
 print(y.shape)
 
-# Identify numerical and categorical columns
+
+# Identify numerical and categorical features
 
 numerical_features = X.select_dtypes(
     include=["int64", "float64"]
 ).columns.tolist()
 
 categorical_features = X.select_dtypes(
-    include=["object"]
+    include=["str"]
 ).columns.tolist()
 
 print("\nNumerical features:")
@@ -240,71 +232,3 @@ print(numerical_features)
 print("\nCategorical features:")
 print(categorical_features)
 
-# ==========================================
-# ENCODING CATEGORICAL FEATURES
-# ==========================================
-
-preprocessor = ColumnTransformer(
-    transformers=[
-        (
-            "categorical",
-            OneHotEncoder(handle_unknown="ignore"),
-            categorical_features
-        )
-    ],
-    remainder="passthrough"
-)
-
-print("\nPreprocessor created successfully.")
-
-
-# Transform features
-
-X_encoded = preprocessor.fit_transform(X)
-
-print("\nEncoded feature matrix shape:")
-print(X_encoded.shape)
-
-# ==========================================
-# FEATURE SCALING & PREPROCESSING
-# ==========================================
-
-preprocessor = ColumnTransformer(
-    transformers=[
-        (
-            "numerical",
-            StandardScaler(),
-            numerical_features
-        ),
-        (
-            "categorical",
-            OneHotEncoder(handle_unknown="ignore"),
-            categorical_features
-        )
-    ]
-)
-
-# ==========================================
-# STEP 13: TRAIN / TEST SPLIT
-# ==========================================
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.20,
-    random_state=42,
-    stratify=y
-)
-
-
-print("\nTraining data shape:")
-print(X_train.shape)
-
-print("\nTesting data shape:")
-print(X_test.shape)
-
-print("\nTraining target shape:")
-print(y_train.shape)
-
-print("\nTesting target shape:")
-print(y_test.shape)
