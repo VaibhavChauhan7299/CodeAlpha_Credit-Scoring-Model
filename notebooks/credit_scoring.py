@@ -283,3 +283,25 @@ print(X_train_processed.shape)
 
 print("\nProcessed testing shape:")
 print(X_test_processed.shape)
+
+# ==========================================
+# STEP 8: LOGISTIC REGRESSION
+# ==========================================
+
+# Create the model
+
+logistic_model = LogisticRegression(
+    max_iter=1000,
+    random_state=42
+)
+
+
+# Train the model
+
+logistic_model.fit(
+    X_train_processed,
+    y_train
+)
+
+
+print("\nLogistic Regression model trained successfully.")
