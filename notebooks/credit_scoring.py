@@ -326,5 +326,26 @@ decision_tree_model.fit(
     y_train
 )
 
-
 print("\nDecision Tree model trained successfully.")
+
+# ==========================================
+# STEP 10: RANDOM FOREST
+# ==========================================
+
+# Create the Random Forest model
+
+random_forest_model = RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+
+
+# Train the Random Forest model
+
+random_forest_model.fit(
+    X_train_processed,
+    y_train
+)
+
+
+print("\nRandom Forest model trained successfully.")
