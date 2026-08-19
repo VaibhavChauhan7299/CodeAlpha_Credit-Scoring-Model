@@ -306,3 +306,24 @@ logistic_model.fit(
 
 
 print("\nLogistic Regression model trained successfully.")
+
+# ==========================================
+# STEP 9: DECISION TREE
+# ==========================================
+
+# Create the Decision Tree model
+
+decision_tree_model = DecisionTreeClassifier(
+    random_state=42
+)
+
+
+# Train the model
+
+decision_tree_model.fit(
+    X_train_processed,
+    y_train
+)
+
+
+print("\nDecision Tree model trained successfully.")
