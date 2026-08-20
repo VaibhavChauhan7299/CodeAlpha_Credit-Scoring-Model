@@ -528,3 +528,13 @@ print("Model location:", model_path)
 
 print("\nPreprocessor saved successfully.")
 print("Preprocessor location:", preprocessor_path)
+
+# ==========================================
+# STEP 21: LOAD SAVED MODEL
+# ==========================================
+
+loaded_model = joblib.load(model_path)
+
+loaded_preprocessor = joblib.load(preprocessor_path)
+
+print("\nSaved model loaded successfully.")
