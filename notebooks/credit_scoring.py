@@ -383,3 +383,58 @@ random_forest_predictions = random_forest_model.predict(
 
 
 print("\nPredictions created successfully.")
+# ==========================================
+# LOGISTIC REGRESSION METRICS
+# ==========================================
+
+print("\n===== LOGISTIC REGRESSION RESULTS =====")
+
+print("Accuracy:",
+      accuracy_score(y_test, logistic_predictions))
+
+print("Precision:",
+      precision_score(y_test, logistic_predictions))
+
+print("Recall:",
+      recall_score(y_test, logistic_predictions))
+
+print("F1 Score:",
+      f1_score(y_test, logistic_predictions))
+
+
+# ==========================================
+# DECISION TREE METRICS
+# ==========================================
+
+print("\n===== DECISION TREE RESULTS =====")
+
+print("Accuracy:",
+      accuracy_score(y_test, decision_tree_predictions))
+
+print("Precision:",
+      precision_score(y_test, decision_tree_predictions))
+
+print("Recall:",
+      recall_score(y_test, decision_tree_predictions))
+
+print("F1 Score:",
+      f1_score(y_test, decision_tree_predictions))
+
+
+# ==========================================
+# RANDOM FOREST METRICS
+# ==========================================
+
+print("\n===== RANDOM FOREST RESULTS =====")
+
+print("Accuracy:",
+      accuracy_score(y_test, random_forest_predictions))
+
+print("Precision:",
+      precision_score(y_test, random_forest_predictions))
+
+print("Recall:",
+      recall_score(y_test, random_forest_predictions))
+
+print("F1 Score:",
+      f1_score(y_test, random_forest_predictions))
