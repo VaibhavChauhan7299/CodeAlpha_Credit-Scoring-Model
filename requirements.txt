@@ -3,25 +3,4 @@ numpy
 matplotlib
 seaborn
 scikit-learn
-
-
-Load CSV
-   ↓
-Clean / inspect
-   ↓
-EDA
-   ↓
-STEP 5
-Create X and y
-   ↓
-Identify numerical/categorical columns
-   ↓
-STEP 6
-Create X_train and X_test
-   ↓
-STEP 7
-Create preprocessor
-   ↓
-fit_transform(X_train)
-   ↓
-transform(X_test)
+joblib
