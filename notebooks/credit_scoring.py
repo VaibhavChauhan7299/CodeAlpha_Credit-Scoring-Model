@@ -438,3 +438,53 @@ print("Recall:",
 
 print("F1 Score:",
       f1_score(y_test, random_forest_predictions))
+
+# ==========================================
+# STEP 19: COMPARE MODELS
+# ==========================================
+
+# Create a dictionary containing all results
+
+model_results = {
+    "Model": [
+        "Logistic Regression",
+        "Decision Tree",
+        "Random Forest"
+    ],
+
+    "Accuracy": [
+        accuracy_score(y_test, logistic_predictions),
+        accuracy_score(y_test, decision_tree_predictions),
+        accuracy_score(y_test, random_forest_predictions)
+    ],
+
+    "Precision": [
+        precision_score(y_test, logistic_predictions),
+        precision_score(y_test, decision_tree_predictions),
+        precision_score(y_test, random_forest_predictions)
+    ],
+
+    "Recall": [
+        recall_score(y_test, logistic_predictions),
+        recall_score(y_test, decision_tree_predictions),
+        recall_score(y_test, random_forest_predictions)
+    ],
+
+    "F1 Score": [
+        f1_score(y_test, logistic_predictions),
+        f1_score(y_test, decision_tree_predictions),
+        f1_score(y_test, random_forest_predictions)
+    ]
+}
+
+
+# Convert dictionary into a DataFrame
+
+results_df = pd.DataFrame(model_results)
+
+
+# Print comparison table
+
+print("\n===== MODEL COMPARISON =====")
+
+print(results_df)
