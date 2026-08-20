@@ -538,3 +538,51 @@ loaded_model = joblib.load(model_path)
 loaded_preprocessor = joblib.load(preprocessor_path)
 
 print("\nSaved model loaded successfully.")
+
+# ==========================================
+# STEP 22: MAKE PREDICTION FOR NEW CUSTOMER
+# ==========================================
+
+# Create new customer data
+
+new_customer = pd.DataFrame([{
+    "checking_account": "A11",
+    "duration": 12,
+    "credit_history": "A34",
+    "purpose": "A43",
+    "credit_amount": 2000,
+    "savings_account": "A65",
+    "employment": "A75",
+    "installment_rate": 2,
+    "personal_status_sex": "A93",
+    "other_debtors": "A101",
+    "residence_since": 3,
+    "property": "A121",
+    "age": 30,
+    "other_installment_plans": "A143",
+    "housing": "A152",
+    "existing_credits": 1,
+    "job": "A173",
+    "people_liable": 1,
+    "telephone": "A192",
+    "foreign_worker": "A201"
+}])
+
+
+# Apply the saved preprocessor
+
+new_customer_processed = loaded_preprocessor.transform(
+    new_customer
+)
+
+
+# Make prediction
+
+prediction = loaded_model.predict(
+    new_customer_processed
+)
+
+
+print("\n===== NEW CUSTOMER PREDICTION =====")
+
+print("Prediction:", prediction[0])
