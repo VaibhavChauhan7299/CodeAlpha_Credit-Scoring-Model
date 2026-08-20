@@ -124,7 +124,7 @@ print(df["credit_risk"].unique())
 # STEP 11: EXPLORATORY DATA ANALYSIS (EDA)
 # ==========================================
 
-# 4.1 Credit Risk Distribution
+# 11.1 Credit Risk Distribution
 
 plt.figure(figsize=(6, 4))
 
@@ -136,7 +136,7 @@ plt.ylabel("Number of Customers")
 
 plt.show()
 
-# 4.2 Credit Amount vs Credit Risk
+# 11.2 Credit Amount vs Credit Risk
 
 plt.figure(figsize=(8, 5))
 
@@ -152,7 +152,7 @@ plt.ylabel("Credit Amount")
 
 plt.show()
 
-# 4.3 Age vs Credit Risk
+# 11.3 Age vs Credit Risk
 
 plt.figure(figsize=(8, 5))
 
@@ -168,7 +168,7 @@ plt.ylabel("Age")
 
 plt.show()
 
-# 4.4 Duration vs Credit Risk
+# 11.4 Duration vs Credit Risk
 
 plt.figure(figsize=(8, 5))
 
@@ -184,7 +184,7 @@ plt.ylabel("Duration (months)")
 
 plt.show()
 
-# 4.5 Correlation Heatmap
+# 11.5 Correlation Heatmap
 
 numerical_columns = df.select_dtypes(
     include=["int64", "float64"]
@@ -206,7 +206,7 @@ plt.title("Correlation Heatmap")
 plt.show()
 
 # ==========================================
-# STEP 5: FEATURE ENGINEERING
+# STEP 12: FEATURE ENGINEERING
 # ==========================================
 
 X = df.drop("credit_risk", axis=1)
@@ -236,7 +236,7 @@ print("\nCategorical features:")
 print(categorical_features)
 
 # ==========================================
-# STEP 6: TRAIN / TEST SPLIT
+# STEP 13: TRAIN / TEST SPLIT
 # ==========================================
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -254,7 +254,7 @@ print("\nTesting data shape:")
 print(X_test.shape)
 
 # ==========================================
-# STEP 7: FEATURE SCALING & PREPROCESSING
+# STEP 14: FEATURE SCALING & PREPROCESSING
 # ==========================================
 
 preprocessor = ColumnTransformer(
@@ -287,7 +287,7 @@ print("\nProcessed testing shape:")
 print(X_test_processed.shape)
 
 # ==========================================
-# STEP 8: LOGISTIC REGRESSION
+# STEP 15: LOGISTIC REGRESSION
 # ==========================================
 
 # Create the model
@@ -309,7 +309,7 @@ logistic_model.fit(
 print("\nLogistic Regression model trained successfully.")
 
 # ==========================================
-# STEP 9: DECISION TREE
+# STEP 16: DECISION TREE
 # ==========================================
 
 # Create the Decision Tree model
@@ -329,7 +329,7 @@ decision_tree_model.fit(
 print("\nDecision Tree model trained successfully.")
 
 # ==========================================
-# STEP 10: RANDOM FOREST
+# STEP 17: RANDOM FOREST
 # ==========================================
 
 # Create the Random Forest model
@@ -349,3 +349,30 @@ random_forest_model.fit(
 
 
 print("\nRandom Forest model trained successfully.")
+
+# ==========================================
+# STEP 18: MODEL EVALUATION
+# ==========================================
+
+# Logistic Regression Predictions
+
+logistic_predictions = logistic_model.predict(
+    X_test_processed
+)
+
+
+# Decision Tree Predictions
+
+decision_tree_predictions = decision_tree_model.predict(
+    X_test_processed
+)
+
+
+# Random Forest Predictions
+
+random_forest_predictions = random_forest_model.predict(
+    X_test_processed
+)
+
+
+print("\nPredictions created successfully.")
