@@ -489,3 +489,42 @@ results_df = pd.DataFrame(model_results)
 print("\n===== MODEL COMPARISON =====")
 
 print(results_df)
+
+# ==========================================
+# STEP 20: SAVE BEST MODEL
+# ==========================================
+
+# Define model folder
+
+MODEL_DIR = BASE_DIR / "models"
+
+# Create models folder if it does not exist
+
+MODEL_DIR.mkdir(exist_ok=True)
+
+
+# Save Random Forest model
+
+model_path = MODEL_DIR / "random_forest_model.pkl"
+
+joblib.dump(
+    random_forest_model,
+    model_path
+)
+
+
+# Save the preprocessor
+
+preprocessor_path = MODEL_DIR / "preprocessor.pkl"
+
+joblib.dump(
+    preprocessor,
+    preprocessor_path
+)
+
+
+print("\nBest model saved successfully.")
+print("Model location:", model_path)
+
+print("\nPreprocessor saved successfully.")
+print("Preprocessor location:", preprocessor_path)
